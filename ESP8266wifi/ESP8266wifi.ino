@@ -6,6 +6,8 @@ Complete project is at: http://embedded-lab.com/blog/making-a-simple-weather-web
 Modified code from Rui Santos' Temperature Weather Server posted on http://randomnerdtutorials.com
 *********/
 
+#include <DHT_U.h>
+#include <DHT.h>
 #include <Wire.h>
 #include <ESP8266WiFi.h>
 #include <Adafruit_Sensor.h>
@@ -54,12 +56,13 @@ void setup() {
 
 	// Printing the ESP IP address
 	Serial.println(WiFi.localIP());
-	Serial.println(F("BME280 test"));
-
+	//Serial.println(F("BME280 test"));
+	/*
 	if (!bme.begin()) {
 		Serial.println("Could not find a valid BME280 sensor, check wiring!");
 		while (1);
 	}
+	*/
 }
 
 void getWeather() {
@@ -106,15 +109,15 @@ void loop() {
 					client.println("<body><h1>ESP8266 Weather Web Server</h1>");
 					client.println("<table border=\"2\" width=\"456\" cellpadding=\"10\"><tbody><tr><td>");
 					client.println("<h3>Temperature = ");
-					client.println(temperatureFString);
+					client.println("temp");//temperatureFString);
 					client.println("&deg;F</h3><h3>Humidity = ");
-					client.println(humidityString);
+					client.println("humid");//humidityString);
 					client.println("%</h3><h3>Approx. Dew Point = ");
-					client.println(dpString);
+					client.println("dpstring");//dpString);
 					client.println("&deg;F</h3><h3>Pressure = ");
-					client.println(pressureString);
+					client.println("pressure");//pressureString);
 					client.println("hPa (");
-					client.println(pressureInchString);
+					client.println("pressureinch");//pressureInchString);
 					client.println("Inch)</h3></td></tr></tbody></table></body></html>");
 					break;
 				}
