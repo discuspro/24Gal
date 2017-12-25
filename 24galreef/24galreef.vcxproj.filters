@@ -15,11 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="24Gal.ino" />
+    <None Include="_24galreef.ino" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="__vm\.24Gal.vsarduino.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
+ 
 </Project>
