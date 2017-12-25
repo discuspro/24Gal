@@ -97,7 +97,7 @@ void loop() {
 				char c = client.read();
 
 				if (c == '\n' && blank_line) {
-					getWeather();
+					//getWeather();
 					client.println("HTTP/1.1 200 OK");
 					client.println("Content-Type: text/html");
 					client.println("Connection: close");
