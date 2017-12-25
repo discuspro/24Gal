@@ -16,6 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="_24Gal.ino" />
+    <None Include="24Gal.ino" />
   </ItemGroup>
- 
 </Project>

@@ -77,6 +77,7 @@
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="24Gal.ino" />
     <None Include="_24Gal.ino">
       <FileType>CppCode</FileType>
     </None>
