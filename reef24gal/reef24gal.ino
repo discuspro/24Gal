@@ -3,8 +3,21 @@ const int Relay1trig = 12;
 const int Relay2trig = 8;
 const int R1 = 20000;
 
+//Heater
 int achievedtargettemp;
 int htr_on;
+float C;
+float raw;
+float targettemp		= 27.7;
+float targettempdelta	= 1;
+float R2 = 0;
+float sumraw;
+float avgraw;
+float buffer			= 0;
+float tempCalSlope		= -0.00219;
+float tempCalInt		= 46.96318;
+
+//Lights
 int light_on;
 int LEDpin = 9;
 int hourmemory = 0;
@@ -17,15 +30,6 @@ int stepsize = (maxPWM - minPWM) / (midday - dawn);
 int PWM;
 int hourtest;
 int test = 0;
-
-float C;
-float raw;
-float targettemp = 34.00;
-float targettempdelta = 1;
-float R2 = 0;
-float sumraw;
-float avgraw;
-float buffer = 0;
 
 #define THERMISTORPIN A0
 #define SERIESRESISTOR 20000
@@ -500,7 +504,7 @@ void loop()
 
 	Serial.println(R2);
 
-	C = (-0.003647 * R2) + 60.517325;
+	C = (tempCalSlope * R2) + tempCalInt;
 	Serial.print("C: ");
 	Serial.println(C);
 
