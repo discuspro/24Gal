@@ -6,6 +6,7 @@ const int R1 = 20000;
 //Heater
 int achievedtargettemp;
 int htr_on;
+int numAvgs				5000;
 float C;
 float raw;
 float targettemp		= 27.7;
@@ -16,6 +17,7 @@ float avgraw;
 float buffer			= 0;
 float tempCalSlope		= -0.00219;
 float tempCalInt		= 46.96318;
+
 
 //Lights
 int light_on;
@@ -489,13 +491,13 @@ void LEDPWM(int x)
 
 void loop()
 {
-	for (int i = 0; i <= 499; i++)
+	for (int i = 0; i <= (numAvgs-1); i++)
 	{
 		raw = analogRead(analogPin);
 		sumraw += raw;
 		delay(1);
 	}
-	avgraw = sumraw / 500;
+	avgraw = sumraw / numAvgs;
 	raw = avgraw;
 	sumraw = 0;
 
@@ -569,7 +571,7 @@ void loop()
 
 	analogWrite(LEDpin, PWM);
 
-	delay(490);
+	//delay(490);
 
 	display.display();
 	//The portion of the screen that shows the time and date are cleared
