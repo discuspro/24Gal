@@ -6,7 +6,7 @@ const int R1 = 20000;
 //Heater
 int achievedtargettemp;
 int htr_on;
-int numAvgs				5000;
+int numAvgs		=		5000;
 float C;
 float raw;
 float targettemp		= 27.7;
