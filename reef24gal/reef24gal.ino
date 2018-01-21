@@ -9,15 +9,17 @@ int htr_on;
 int numAvgs		=		5000;
 float C;
 float raw;
-float targettemp		= 27.7;
-float targettempdelta	= 1;
+float targettemp		= 26.5;
+float targettempdelta	= 0.5;
 float R2 = 0;
 float sumraw;
 float avgraw;
 float buffer			= 0;
 float tempCalSlope		= -0.00219;
 float tempCalInt		= 46.96318;
-
+float calvalue1 = 9100;		//voltage readback at 27.5C thermometer reading
+float calvalue2 = 0;		//place voltage readback value according to calibrated thermometer reading
+float calvalue3 = 0;		//place voltage readback value according to calibrated thermometer reading
 
 //Lights
 int light_on;
