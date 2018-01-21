@@ -23,7 +23,7 @@
 497		{
 498			raw = analogRead(analogPin);
 499			sumraw += raw;
-500			delay(1);
+500			delayMicroseconds(10);
 501		}
 502		avgraw = sumraw / numAvgs;
 503		raw = avgraw;

@@ -6,11 +6,11 @@ const int R1 = 20000;
 //Heater
 int achievedtargettemp;
 int htr_on;
-int numAvgs		=		5000;
+int numAvgs		=		5000000;
 float C;
 float raw;
-float targettemp		= 26.5;
-float targettempdelta	= 0.5;
+float targettemp		= 25.5;
+float targettempdelta	= 0.25;
 float R2 = 0;
 float sumraw;
 float avgraw;
@@ -497,7 +497,7 @@ void loop()
 	{
 		raw = analogRead(analogPin);
 		sumraw += raw;
-		delay(1);
+		delayMicroseconds(10);
 	}
 	avgraw = sumraw / numAvgs;
 	raw = avgraw;
@@ -573,7 +573,7 @@ void loop()
 
 	analogWrite(LEDpin, PWM);
 
-	//delay(490);
+	delay(1000);
 
 	display.display();
 	//The portion of the screen that shows the time and date are cleared
